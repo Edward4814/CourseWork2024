@@ -30,6 +30,6 @@
         <TextBox x:Name="DescriptionTextBox" Grid.Row="2" Grid.Column="1" Margin="5,2,5,5"/>
         <DatePicker x:Name="DatePickerTextBox" Grid.Row="3" Grid.Column="1" Margin="5,2,5,5"/>
 
-        <Button x:Name="CreateNoteButton" Content="Create Note" Grid.Row="4" Grid.Column="2" Margin="5,5,5,5"/>
+        <Button x:Name="CreateNoteButton" Content="Create Note" Grid.Row="4" Grid.Column="2" Margin="5,5,5,5" Click="CreateNoteButton_Click"/>
     </Grid>
 </Window>

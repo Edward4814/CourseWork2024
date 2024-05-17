@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using static System.Net.Mime.MediaTypeNames;
+using System.Xml.Linq;
 
 namespace CourseWork2024
 {
@@ -22,6 +12,35 @@ namespace CourseWork2024
         public Create_Note()
         {
             InitializeComponent();
+        }
+
+        private void CreateNoteButton_Click(object sender, RoutedEventArgs e) //Метод для створення нотатки, та заванження її в базу данних
+        {
+            Note note = new Note();
+            try
+            {
+                if (TitleTextBox.Text == "")
+                {
+                    throw new Exception("Title cannot be empty");
+                }
+                if(DatePickerTextBox.SelectedDate == null)
+                {
+                    throw new Exception("Date cannot be empty");
+                }
+                note.Title = TitleTextBox.Text;
+                note.Description = DescriptionTextBox.Text;
+                note.Date = DatePickerTextBox.SelectedDate.Value.Date;
+
+                using (NoteContext context = new NoteContext())
+                {
+                    context.Notes.Add(note);
+                    context.SaveChanges();
+                }
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
     }
 }

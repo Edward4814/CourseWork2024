@@ -3,28 +3,21 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CourseWork2024
-{
-    internal class NoteContext : DbContext
+{  
+    internal class NoteContext : DbContext //class to setup work with SQlite
     {
-        public DbSet<Note> Notes { get; set; }
-        public string DbPath { get; }
-        public NoteContext()
-        {
-            DbPath = "notes.db";
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite($"Data source = {DbPath}");
+            optionsBuilder.UseSqlite("Data source = notes.db");
         }
+        public DbSet<Note> Notes { get; set; }
     }
     internal class Note
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string id { get; set; }
-        public string title { get; set; }
-        public DateTime date { get; set; }
-        public string description { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public DateTime Date { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -1,21 +1,16 @@
-﻿using System.Configuration;
-using System.Data;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Windows;
-using CourseWork2024;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Sqlite;
+
+
 namespace CourseWork2024
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e) //Створення бази данних у разі її відсутності
         {
             DatabaseFacade facade = new DatabaseFacade(new NoteContext());
+            //facade.EnsureDeleted();
             facade.EnsureCreated();
-            base.OnStartup(e);
         }
     }
 
