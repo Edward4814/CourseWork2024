@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
+using CourseWork2024.Model;
 
 namespace CourseWork2024
 {
@@ -16,7 +17,6 @@ namespace CourseWork2024
 
         private void CreateNoteButton_Click(object sender, RoutedEventArgs e) //Метод для створення нотатки, та заванження її в базу данних
         {
-            Note note = new Note();
             try  //Перевірка полів Title та Date на заповнення
             {
                 if (TitleTextBox.Text == "")
@@ -27,7 +27,7 @@ namespace CourseWork2024
                 {
                     throw new Exception("Date cannot be empty");
                 }
-                note.SaveNote(TitleTextBox.Text, DescriptionTextBox.Text, DatePickerTextBox.SelectedDate.Value.Date);
+                Note.SaveNote(TitleTextBox.Text, DescriptionTextBox.Text, DatePickerTextBox.SelectedDate.Value.Date);
 
                 MessageBoxResult rl = MessageBox.Show("Note Created Successfully", "Note Created", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 if (rl == MessageBoxResult.OK)
