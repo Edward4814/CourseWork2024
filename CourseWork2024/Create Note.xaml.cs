@@ -17,7 +17,7 @@ namespace CourseWork2024
         private void CreateNoteButton_Click(object sender, RoutedEventArgs e) //Метод для створення нотатки, та заванження її в базу данних
         {
             Note note = new Note();
-            try
+            try  //Перевірка полів Title та Date на заповнення
             {
                 if (TitleTextBox.Text == "")
                 {
@@ -27,16 +27,15 @@ namespace CourseWork2024
                 {
                     throw new Exception("Date cannot be empty");
                 }
-                note.Title = TitleTextBox.Text;
-                note.Description = DescriptionTextBox.Text;
-                note.Date = DatePickerTextBox.SelectedDate.Value.Date;
+                note.SaveNote(TitleTextBox.Text, DescriptionTextBox.Text, DatePickerTextBox.SelectedDate.Value.Date);
 
-                using (NoteContext context = new NoteContext())
+                MessageBoxResult rl = MessageBox.Show("Note Created Successfully", "Note Created", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                if (rl == MessageBoxResult.OK)
                 {
-                    context.Notes.Add(note);
-                    context.SaveChanges();
+                    Close();
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
