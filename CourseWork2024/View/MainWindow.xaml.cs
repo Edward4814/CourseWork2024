@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using CourseWork2024.ViewModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,18 +20,9 @@ namespace CourseWork2024
         public MainWindow()
         {
             InitializeComponent();
-        }
+            MainViewModel mainViewModel = new MainViewModel();
+            this.DataContext = mainViewModel;
 
-        void AddNoteButton_Click(object sender, RoutedEventArgs e)
-        {
-            Window window = new Create_Note();
-            window.Show();
-        }
-        void PrevButton_Click(object sender, RoutedEventArgs e)
-        {
-        }
-        void NextButton_Click(object sender, RoutedEventArgs e)
-        {
         }
     }
 }

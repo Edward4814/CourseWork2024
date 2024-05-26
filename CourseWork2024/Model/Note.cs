@@ -13,7 +13,7 @@ namespace CourseWork2024.Model
         }
         public DbSet<Note> Notes { get; set; }
     }
-    internal class Note
+    public class Note
     {
         [Key]
         public int Id { get; set; }
@@ -21,10 +21,14 @@ namespace CourseWork2024.Model
         public DateTime Date { get; set; }
         public string? Description { get; set; }
 
-
-        static public void SaveNote(string title, string description, DateTime date)
+        public Note(string title, DateTime date, string description)
         {
-            Note note = new() { Title = title, Description = description, Date = date};
+            Title = title;
+            Date = date;
+            Description = description;
+        }
+        static public void SaveNote(Note note)
+        {
             using NoteContext context = new();
             context.Notes.Add(note);
             context.SaveChanges();
