@@ -18,20 +18,6 @@ namespace CourseWork2024.Model
         [Key]
         public int Id { get; set; }
         public string? Title { get; set; }
-        public DateTime Date { get; set; }
         public string? Description { get; set; }
-
-        public Note(string title, DateTime date, string description)
-        {
-            Title = title;
-            Date = date;
-            Description = description;
-        }
-        static public void SaveNote(Note note)
-        {
-            using NoteContext context = new();
-            context.Notes.Add(note);
-            context.SaveChanges();
-        }
     }
 }

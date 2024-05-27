@@ -11,9 +11,8 @@ namespace CourseWork2024.ViewModel
 {
     public class AddNoteViewModel
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Date { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
         public ICommand AddNoteCommand { get; set; }
 
         public AddNoteViewModel()
@@ -28,7 +27,9 @@ namespace CourseWork2024.ViewModel
 
         private void AddNote(object obj)
         {
-            NoteManager.AddNote(new Note(Title = Title, Date = Date, Description = Description));
+            Note note = new Note() { Title = Title, Description = Description };
+            NoteManager.AddNote(note);
+            CRUDOpsModel.Create(note);
         }
     }
 }

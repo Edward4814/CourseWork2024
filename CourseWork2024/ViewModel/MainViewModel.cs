@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CourseWork2024.Commands;
 using CourseWork2024.Model;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace CourseWork2024.ViewModel
 {
     public class MainViewModel
     {
-        public ObservableCollection<Note> notes { get; set; }
+        public ObservableCollection<Note> Notes { get; set; }
 
-        public ICommand showWindowCommand { get; set; }
+        public ICommand ShowWindowCommand { get; set; }
 
         public MainViewModel()
         {
-            notes = NoteManager.getNotes();
-
-            showWindowCommand = new RelayCommand(ShowWindow, CanShowWindow);
+            Notes = NoteManager.GetNotes();
+            ShowWindowCommand = new RelayCommand(ShowWindow, CanShowWindow);
         }
 
         private bool CanShowWindow(object obj)

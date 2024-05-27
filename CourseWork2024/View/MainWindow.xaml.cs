@@ -22,7 +22,6 @@ namespace CourseWork2024
             InitializeComponent();
             MainViewModel mainViewModel = new MainViewModel();
             this.DataContext = mainViewModel;
-
         }
     }
 }

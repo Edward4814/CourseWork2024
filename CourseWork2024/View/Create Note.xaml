@@ -8,29 +8,22 @@
         Title="Note Creation" Height="480" Width="640" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"></ColumnDefinition>
-            <ColumnDefinition ></ColumnDefinition>
-            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="40*"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="40*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label x:Name="TitleLable" Content ="Title*" Grid.Row="1" Margin="10,6,0,0"/>
-        <Label x:Name="DescriptionLable" Content="Description " Grid.Row="2" Margin="10,6,0,0"/>
-        <Label x:Name="DateSelectionLable" Content="Date* " Grid.Row="3" Margin="10,6,0,0"/>
-        <Label x:Name="FillTheField" Content="* -  The field is required to be filled" Grid.Row="3" FontSize="10" Height="30" Grid.ColumnSpan="2" Margin="99,27,1,20" Grid.RowSpan="2"/>
+        <Label x:Name="TitleLable" Content ="Title" HorizontalAlignment="Center"/>
+        <Label x:Name="DescriptionLable" Content="Description" Grid.Row="1" HorizontalAlignment="Center"/>
 
-        <TextBox x:Name="TitleTextBox" Text ="{Binding Title}" Grid.Row="1" Grid.Column="1" Margin="5,2,5,5"/>
-        <TextBox x:Name="DescriptionTextBox" Text="{Binding Description}" Grid.Row="2" Grid.Column="1" Margin="5,2,5,5"/>
-        <DatePicker x:Name="DatePickerTextBox"  SelectedDate="{Binding Date}" Grid.Row="3" Grid.Column="1" Margin="5,2,5,5"/>
+        <TextBox x:Name="TitleTextBox" Text ="{Binding Title}" Grid.Column="1" Margin="5 5 5 5"/>
+        <TextBox x:Name="DescriptionTextBox" Text="{Binding Description}" Grid.Column="1" Grid.Row="1" Margin="5 5 5 5"/>
 
-        <Button x:Name="CreateNoteButton" Content="Create Note" Grid.Row="4" Grid.Column="2" Margin="5,5,5,5" Command="{Binding AddNoteCommand}"/>
+        <Button x:Name="CreateNoteButton" Content="Create Note" Command="{Binding AddNoteCommand}" Margin="100 10 100 10"  Grid.Column="1" Grid.Row="2"/>
     </Grid>
 </Window>

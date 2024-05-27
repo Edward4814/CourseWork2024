@@ -5,85 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseWork2024"
         mc:Ignorable="d"
-        Title="Calendar" Height="700" Width="1400"
+        Title="Calendar" Height="700" Width="1000"
         ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
-
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="60*"></RowDefinition>
-            <RowDefinition Height="50*"></RowDefinition>
-            <RowDefinition Height="98*"></RowDefinition>
-            <RowDefinition Height="98*"></RowDefinition>
-            <RowDefinition Height="98*"></RowDefinition>
-            <RowDefinition Height="98*"></RowDefinition>
-            <RowDefinition Height="98*"></RowDefinition>
-            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="90*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Name="MonthName" Grid.Column ="3" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" Height="10" Width="10"/>
-        <Label Content ="Year selector:" Grid.Column ="5" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="184"/>
+        <ListView Name="NotesList" ItemsSource="{Binding Notes}" Margin="10" Grid.Row="1" Grid.ColumnSpan ="3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
-        <Label Content="Monday" FontSize="25" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Tuesday" FontSize="25" Grid.Row="1" Grid.Column ="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Wednesday" FontSize="25" Grid.Row="1" Grid.Column ="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Thursday" FontSize="25" Grid.Row="1" Grid.Column ="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Friday" FontSize="25" Grid.Row="1" Grid.Column ="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Saturday" FontSize="25" Grid.Row="1" Grid.Column ="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Sunday" FontSize="25" Grid.Row="1" Grid.Column ="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-        <StackPanel Grid.Row="2" Grid.Column="0" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="2" Grid.Column="2" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="2" Grid.Column="3" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="2" Grid.Column="4" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="2" Grid.Column="5" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="2" Grid.Column="6" Margin="5,5,5,5" Background="AliceBlue"/>
-        <!---->
-        <StackPanel Grid.Row="3" Grid.Column="0" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="3" Grid.Column="1" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="3" Grid.Column="2" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="3" Grid.Column="3" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="3" Grid.Column="4" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="3" Grid.Column="5" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="3" Grid.Column="6" Margin="5,5,5,5" Background="AliceBlue"/>
-        <!---->
-        <StackPanel Grid.Row="4" Grid.Column="0" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="4" Grid.Column="1" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="4" Grid.Column="2" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="4" Grid.Column="3" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="4" Grid.Column="4" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="4" Grid.Column="5" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="4" Grid.Column="6" Margin="5,5,5,5" Background="AliceBlue"/>
-        <!---->
-        <StackPanel Grid.Row="5" Grid.Column="0" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="5" Grid.Column="1" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="5" Grid.Column="2" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="5" Grid.Column="3" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="5" Grid.Column="4" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="5" Grid.Column="5" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="5" Grid.Column="6" Margin="5,5,5,5" Background="AliceBlue"/>
-        <!---->
-        <StackPanel Grid.Row="6" Grid.Column="0" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="6" Grid.Column="1" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="6" Grid.Column="2" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="6" Grid.Column="3" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="6" Grid.Column="4" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="6" Grid.Column="5" Margin="5,5,5,5" Background="AliceBlue"/>
-        <StackPanel Grid.Row="6" Grid.Column="6" Margin="5,5,5,5" Background="AliceBlue"/>
-
-        <ComboBox Name ="Year" Grid.Column ="6" Margin="10 10 10 10"/>
-        <Button Name="PreviousMonth" Content ="Previous" Margin="10 10 10 10" FontSize="15" Grid.Column ="2"/>
-        <Button Name="NextMonth" Content ="Next" Margin="10 10 10 10" FontSize="15" Grid.Column ="4"/>
-        <Button Name="AddNote" Content ="Add note" Margin="10 10 10 10" FontSize="15" Grid.Row ="7" Grid.Column ="6" Command="{Binding showWindowCommand}"/>
+        <TextBox Name ="SearchBar" Margin="5" Background="#feff"/>
+        <Button Name="AddNote" Content ="Add note" Margin="10 10 10 10" FontSize="15" Command="{Binding ShowWindowCommand}" Grid.Column="2" Grid.Row="2"/>
+        <Button Name="DeleteNote" Content ="Delete note" Margin="10 10 10 10" FontSize="15"  Grid.Column="1" Grid.Row="2"/>
     </Grid>
 </Window>

@@ -11,8 +11,9 @@ namespace CourseWork2024.Model
     {
         public static ObservableCollection<Note> _dbNotes;
 
-        public static ObservableCollection<Note> getNotes()
+        public static ObservableCollection<Note> GetNotes()
         {
+            _dbNotes = new ObservableCollection<Note>(CRUDOpsModel.Read());
             return _dbNotes;
         }
 
